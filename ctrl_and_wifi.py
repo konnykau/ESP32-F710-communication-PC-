@@ -11,8 +11,8 @@ def main():
     client.connect((ip_address, port))
     # サーバにデータを送信する
     try:
-        while True:
-            events = get_gamepad()
+        while True: #無限ループ
+            events = get_gamepad()#コントローラの入力を取得
             for event in events:
                 if event.ev_type != "Sync" :
                     client.sendall(bytes(event.code + "\n", encoding='ASCII'))
